@@ -1,0 +1,85 @@
+# Capstone Project: LRFM Segmentation and Promo Analysis For Supermarket Customers
+
+## Tujuan Proyek
+Proyek ini bertujuan untuk menganalisis perilaku pelanggan supermarket menggunakan pendekatan LRFM (Length, Recency, Frequency, Monetary) serta mengevaluasi efektivitas kampanye promosi. Analisis ini memberikan wawasan mendalam yang dapat digunakan untuk meningkatkan loyalitas pelanggan dan menyusun strategi pemasaran yang lebih efektif.
+
+## Library Python yang Digunakan
+
+- pandas: Untuk manipulasi dan eksplorasi data tabular  
+- matplotlib.pyplot: Untuk membuat visualisasi dasar  
+- seaborn: Untuk visualisasi yang lebih informatif dan estetis  
+
+## Struktur Notebook
+
+1. **Deskripsi Pelanggan**  
+   Analisis karakteristik demografis pelanggan: usia, pendidikan, status pernikahan, dan jumlah anak.
+
+2. **Customer Overview**  
+   Eksplorasi pendapatan, durasi menjadi pelanggan (tenure), dan partisipasi pelanggan dalam kampanye.
+
+3. **Sales Channel Analysis**  
+   Analisis saluran pembelian: toko fisik, katalog, situs web, dan pembelian berbasis diskon.
+
+4. **Product Analysis**  
+   Mengidentifikasi pola pengeluaran pelanggan terhadap berbagai jenis produk.
+
+5. **RFM & Promo Campaign Analysis**  
+   Segmentasi pelanggan dengan pendekatan LRFM dan analisis efektivitas kampanye promosi berdasarkan segmentasi tersebut.
+
+## Deskripsi Data (Data Dictionary)
+
+### People
+| Kolom           | Deskripsi                                                             |
+|------------------|------------------------------------------------------------------------|
+| ID               | Identifikasi unik pelanggan                                            |
+| Year_Birth       | Tahun kelahiran pelanggan                                              |
+| Education        | Tingkat pendidikan pelanggan                                           |
+| Marital_Status   | Status pernikahan pelanggan                                            |
+| Income           | Pendapatan tahunan rumah tangga pelanggan                              |
+| Kidhome          | Jumlah anak kecil di rumah                                             |
+| Teenhome         | Jumlah remaja di rumah                                                 |
+| Dt_Customer      | Tanggal pertama kali menjadi pelanggan                                 |
+| Recency          | Jumlah hari sejak pembelian terakhir                                   |
+| Complain         | 1 jika pernah komplain dalam 2 tahun terakhir, 0 jika tidak            |
+
+### Products
+| Kolom             | Deskripsi                                                     |
+|--------------------|--------------------------------------------------------------|
+| MntWines           | Total pengeluaran untuk wine dalam 2 tahun terakhir          |
+| MntFruits          | Total pengeluaran untuk buah dalam 2 tahun terakhir          |
+| MntMeatProducts    | Total pengeluaran untuk daging dalam 2 tahun terakhir        |
+| MntFishProducts    | Total pengeluaran untuk ikan dalam 2 tahun terakhir          |
+| MntSweetProducts   | Total pengeluaran untuk makanan manis dalam 2 tahun terakhir |
+| MntGoldProds       | Total pengeluaran untuk produk emas dalam 2 tahun terakhir   |
+
+### Promotion
+| Kolom           | Deskripsi                                                                          |
+|------------------|-------------------------------------------------------------------------------------|
+| NumDealsPurchases| Jumlah pembelian yang menggunakan diskon                                           |
+| AcceptedCmp1     | 1 jika pelanggan menerima penawaran kampanye pertama, 0 jika tidak                 |
+| AcceptedCmp2     | 1 jika pelanggan menerima penawaran kampanye kedua, 0 jika tidak                   |
+| AcceptedCmp3     | 1 jika pelanggan menerima penawaran kampanye ketiga, 0 jika tidak                  |
+| AcceptedCmp4     | 1 jika pelanggan menerima penawaran kampanye keempat, 0 jika tidak                 |
+| AcceptedCmp5     | 1 jika pelanggan menerima penawaran kampanye kelima, 0 jika tidak                  |
+| Response         | 1 jika pelanggan menerima penawaran kampanye terakhir, 0 jika tidak                |
+
+### Place (Saluran Belanja)
+| Kolom               | Deskripsi                                                               |
+|----------------------|------------------------------------------------------------------------|
+| NumWebPurchases      | Jumlah pembelian melalui situs web perusahaan                         |
+| NumCatalogPurchases  | Jumlah pembelian menggunakan katalog                                  |
+| NumStorePurchases    | Jumlah pembelian langsung di toko                                     |
+| NumWebVisitsMonth    | Jumlah kunjungan ke situs web perusahaan dalam 1 bulan terakhir       |
+
+## Feature Engineering
+
+Beberapa fitur tambahan dibuat dari data asli untuk memperkaya analisis dan mendukung segmentasi pelanggan secara lebih akurat:
+
+- **TotalPurchases**: Jumlah dari pembelian di semua channel (web, katalog, toko) dan diskon.
+- **Length_Score (L)**: Lama pelanggan telah bergabung sejak tanggal pertama kali menjadi pelanggan 
+- **Length**: Lama pelanggan telah bergabung sejak tanggal pertama kali menjadi pelanggan 
+- **Frequency**: Jumlah total transaksi yang dilakukan pelanggan
+- **Monetary**: Total pengeluaran pelanggan untuk semua produk 
+- **Recency,Frequency,Monetary,Receny Score*: Score pelanggan sesuai nilai tersebut
+- **Segment: segmentasi pelanggan sesuai LRFM
+
